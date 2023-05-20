@@ -14,3 +14,4 @@ Here you have some links to my work. Unfortunately, my master's thesis is writte
 -  [Master's thesis](https://repositorio.unicamp.br/Busca/Download?codigoArquivo=489487) - PDF File
 -  [Article: Optimal Rectangular Partitions](https://onlinelibrary.wiley.com/doi/abs/10.1002/net.10058)
   
+One more important information. Although this code was originally written in C++ using [Standard Template Library](https://en.wikipedia.org/wiki/Standard_Template_Library) in an old version of [emacs editor](https://www.gnu.org/software/emacs/) in the late 90s, it was adapted to run in Microsoft Visual Studio 2019:tm:.
