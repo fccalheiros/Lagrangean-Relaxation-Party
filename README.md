@@ -10,9 +10,7 @@ I will briefly explain how to do this later...
 I also have some problems with the code (a program never ends) which I will share here. If you are an enthusiast, feel free to contribute. Also feel free to suggest new topics.
 
 Here you have some links to my work. Unfortunately, my master's thesis is written in Portuguese (as you may have noticed, English is not one of my talents). The article is paid for, but I believe you can find a free version by searching Google.
-<ul>
 
-  [Master's thesis](https://repositorio.unicamp.br/Busca/Download?codigoArquivo=489487)
-  [Article: Optimal Rectangular Partitions](https://onlinelibrary.wiley.com/doi/abs/10.1002/net.10058)
+-  [Master's thesis](https://repositorio.unicamp.br/Busca/Download?codigoArquivo=489487) - PDF File
+-  [Article: Optimal Rectangular Partitions](https://onlinelibrary.wiley.com/doi/abs/10.1002/net.10058)
   
-</ul>
