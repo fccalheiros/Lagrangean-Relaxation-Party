@@ -238,26 +238,9 @@ void LagrangeanManager::Solve(float InitialCost, float KnownBound ) {
         _algo->FixaVariaveis(relaxada, valorRelaxado, InitialCost);
         resHeuristica = _algo->Heuristica(relaxada, heuristica, valorHeuristica, InitialCost);
         CheckBounds(valorRelaxado, valorHeuristica, heuristica, resHeuristica);
-
-        //felipe -- retirar
-        /*
-        if (_algo->Price(relaxada)) {
-            cout << PrintVariableVector(relaxada);
-            cout << " ------- " << endl;
-            cout << PrintVariableVector(_best);
-            _algo->Relaxacao(relaxada, valorRelaxado, InitialCost);
-            setLowerBound(valorRelaxado);
-        }
-        */
-
         _algo->GeraCortes(relaxada);
         _algo->SubGradiente(relaxada);
-   
         testeParada = _algo->TesteParada();
-
-        //felipe - retirar
-        //CheckConstraints(relaxada);
-
     }
 
     _algo->Finalizacao();
