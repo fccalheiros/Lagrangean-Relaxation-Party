@@ -34,6 +34,13 @@ public:
 
 	bool CUT_GENERATION = true;
 
+	int PRICEOUTRATIO = 0;
+
+	string BRANCHSTRATEGY = "BFS";
+	string VARIABLESTRATEGY = "HIGHINCUMBENTCOST";
+
+
+
 
 protected:
 

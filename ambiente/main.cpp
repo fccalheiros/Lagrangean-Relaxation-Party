@@ -1,6 +1,11 @@
 #include "main.h"
 #include "Configuration.h"
 
+#include <sstream>
+#include <iomanip>
+#include <fstream>
+
+
 
 bool perturbacao;
 bool linear;
@@ -30,15 +35,47 @@ void EndStats() {
  
 }
 
+bool CheckUsage(int argc, char * argv[])
+{
+    bool ok = true;
+    ok =  ok && ( (argc == 3) || (argc == 5) );
+    if (argc == 5) {
+        ok = ok && (strcmp(argv[3], "l") or strcmp(argv[3], "c"));
+    }
+    if (! ok) {
+        cout << "Usage: " << endl;
+        cout << argv[0] << " InstanceFile ConfigurationFile [l|c] [OutputFile]" << endl;
+        cout << "   Optional l to genarate linear programming file OutputFile" << endl;
+        cout << "   Optional c to genarate cuts to file OutputFile --- whose usefulness I don't remember " << endl;
+    }
+
+    return ok;
+}
+
 // 
 // 
 //
 
 int main2 (int argc, char * argv[]) {
 
+  if  (! CheckUsage(argc,argv) ) return 1;
+
     srand(13);
+
+    string configFile = argv[2];
     Configuration * config = new Configuration();
-    config->PARSE("C:\\Users\\fccal\\Documents\\Pessoal\\mestrado\\instancias\\Configuration.json");
+    try {
+        if (!config->PARSE(configFile)) {
+            cout << "Unable to Parse File: " << configFile << endl;
+            cout << "Using default values: " << endl;
+        }
+    }
+    catch (exception& e) {
+        cout << e.what() << endl;
+        cout << "Unable to Parse File: " << configFile << endl;
+        cout << "Using default values: " << endl;
+    }
+    
     cout << config->Print();
 
     RGPLagrangeanRelaxation* algorithm = new RGPLagrangeanRelaxation(config);
@@ -52,7 +89,7 @@ int main2 (int argc, char * argv[]) {
  
     BBTree bbTree(manager, algorithm, sa, config);
 
-    if ( argc == 2 ) { 
+    if ( argc == 3 ) { 
 
         StartStats();
         bbTree.GO();
@@ -65,63 +102,22 @@ int main2 (int argc, char * argv[]) {
         return 0;
     }
 
-    FILE *saida = stdout;
-    if (argc == 4) {
-        saida = fopen(argv[3],"w");
-    }
-
-    if ( strcmp(argv[2],"c") == 0 ) {
-        cortes(manager,saida);
+    if (strcmp(argv[3], "l") == 0) {
+        ofstream file;
+        file.open(argv[4]);
+        file << manager->PrintLP();
+        file.close();
         return 0;
     }
-
-    perturbacao =  strcmp(argv[2],"p") == 0;
-    linear      =  strcmp(argv[2],"l") == 0;
-
-    if ( linear ) {
-        cout << manager->PrintLP();
+    
+    if (strcmp(argv[3], "c") == 0) {
+        FILE* saida = stdout;
+        saida = fopen(argv[4], "w");
+        cortes(manager, saida);
         return 0;
     }
-    else if ( perturbacao ) {
-        fprintf(saida,"minimize\n");
-        fprintf(saida,"%3.12f",Custo(0));
-        //fprintf(saida," x%d",ger3._variables[0]->retNome());
-        //for (i=1;i< ger3._variables.size();i++) {
-        //  if ( (i % 8) == 0 ) fprintf(saida,"\n"); 
-        //  fprintf(saida," + %3.12f",Custo(i));
-            // fprintf(saida," x%d",ger3._variables[i]->retNome());
-        //}
-    }
-
-    fprintf(saida, "\nsubject to\n");
-    //ger3.para_cada_restricao( Imprime <Constraint *> (saida) );
-    //ger3.para_cada_restricaoND( Imprime <Constraint *> (saida) );  
-
-
-    fprintf(saida,"binary\n");
-    //for (i=1;i< ger3._variables.size();i++)  
-    //  fprintf(saida,"x%d\n",ger3._variables[i]->retNome());
-    fprintf(saida,"end");
-    fflush(saida);
-    //fclose(saida);
-  
+ 
     return 0;
-
-    /*** Imprime programa no formato do Beasley *******/
-
-    //cout << ger3._constraints.size() << " " << ger3._variables.size();
-    //for (i=0;i< ger3._variables.size();i++) {
-    //  if ( i%12 == 0 ) cout << "\n";
-    //  cout << ger3._variables[i]->retCusto() << " ";
-    // }
-    // cout << "\n";
-  
-    //for (i=0; i< ger3._constraints.size(); i++) { 
-    //  ( (Constraint *)(ger3._constraints[i]) )->ImprimeBeasley();
-    //  cout << "\n";
-    //}
-
-  return 0;
 
 }
 

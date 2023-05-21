@@ -25,6 +25,9 @@ void Configuration::Initialization() {
 	InsertContent("MINUS00", to_string(MINUS00));
 	InsertContent("CLEANFACTOR", to_string(CLEANFACTOR));
 	InsertContent("CUT_GENERATION", to_string(CUT_GENERATION));
+	InsertContent("BRANCHSTRATEGY", BRANCHSTRATEGY);
+	InsertContent("VARIABLESTRATEGY", VARIABLESTRATEGY);
+	InsertContent("PRICEOUTRATIO", to_string(PRICEOUTRATIO));
 
 }
 
@@ -113,25 +116,29 @@ bool Configuration::PARSE(string FileName) {
 	string line;
 	stringstream input;
 	ifstream file(FileName.c_str());
+	bool result = ! file.fail();
 
-	// Use a while loop together with the getline() function to read the file line by line
-	while (getline(file, line)) {
-		input << line;
+
+	if (result) {
+		// Use a while loop together with the getline() function to read the file line by line
+		while (getline(file, line)) {
+			input << line;
+		}
+
+		file.close();
+
+		_fileText = input.str();
+		_fileText.erase(std::remove(_fileText.begin(), _fileText.end(), '\n'), _fileText.end());
+		_fileText.erase(std::remove(_fileText.begin(), _fileText.end(), '\t'), _fileText.end());
+		_pointer = 0;
+
+
+		if (!OpenBracket()) return false;
+		if (!ParseContent()) return false;
+		if (!CloseBracket()) return false;
 	}
 
-	file.close();
-
-	_fileText = input.str();
-	_fileText.erase(std::remove(_fileText.begin(), _fileText.end(), '\n'), _fileText.end());
-	_fileText.erase(std::remove(_fileText.begin(), _fileText.end(), '\t'), _fileText.end());
-	_pointer = 0;
-
-
-	if (!OpenBracket()) return false;
-	if (!ParseContent()) return false;
-	if (!CloseBracket()) return false;
-	
-	return true;
+	return (result);
 }
 
 
