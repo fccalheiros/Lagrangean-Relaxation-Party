@@ -10,10 +10,10 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 #ifndef NDEBUG
-    argc = 2;
-    string str0 = "C:\\Users\\fccal\\Documents\\Pessoal\\mestrado\\instancias\\w20h20n17i4.pt";
+    argc = 3;
+    string str0 = "C:\\Users\\fccal\\iCloudDrive\\Notebook\\Documentos\\Pessoal\\mestrado\\instancias\\w20h20n17i4.pt";
     argv[1] = &str0[0];
-    string str1 = "";
+    string str1 = "C:\\Users\\fccal\\iCloudDrive\\Notebook\\Documentos\\Pessoal\\mestrado\\instancias\\Configuration.json";
     argv[2] = &str1[0];
 #endif
     try {
