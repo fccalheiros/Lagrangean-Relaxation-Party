@@ -1,11 +1,11 @@
-// Mestrado.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
+// Mestrado.cpp : Main function resides here
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-#include "ambiente/main.h"
+#include "../ambiente/main.h"
 
 int main(int argc, char* argv[])
 {

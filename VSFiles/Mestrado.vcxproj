@@ -151,42 +151,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ambiente\algoritmo.h" />
-    <ClInclude Include="ambiente\BBTree.h" />
-    <ClInclude Include="ambiente\Configuration.h" />
-    <ClInclude Include="ambiente\RGPCut.h" />
-    <ClInclude Include="ambiente\grafo.h" />
-    <ClInclude Include="ambiente\LagrangeanRelaxation.h" />
-    <ClInclude Include="ambiente\RGPLagrangeanRelaxation.h" />
-    <ClInclude Include="ambiente\main.h" />
-    <ClInclude Include="ambiente\LagrangeanManager.h" />
-    <ClInclude Include="ambiente\Points.h" />
-    <ClInclude Include="ambiente\Constraint.h" />
-    <ClInclude Include="ambiente\restricao_hash.h" />
-    <ClInclude Include="ambiente\RGPManager.h" />
-    <ClInclude Include="ambiente\Time.h" />
-    <ClInclude Include="ambiente\Variable.h" />
-    <ClInclude Include="ambiente\RGPVariable.h" />
+    <ClInclude Include="..\ambiente\algoritmo.h" />
+    <ClInclude Include="..\ambiente\BBTree.h" />
+    <ClInclude Include="..\ambiente\Configuration.h" />
+    <ClInclude Include="..\ambiente\RGPCut.h" />
+    <ClInclude Include="..\ambiente\grafo.h" />
+    <ClInclude Include="..\ambiente\LagrangeanRelaxation.h" />
+    <ClInclude Include="..\ambiente\RGPLagrangeanRelaxation.h" />
+    <ClInclude Include="..\ambiente\main.h" />
+    <ClInclude Include="..\ambiente\LagrangeanManager.h" />
+    <ClInclude Include="..\ambiente\Points.h" />
+    <ClInclude Include="..\ambiente\Constraint.h" />
+    <ClInclude Include="..\ambiente\restricao_hash.h" />
+    <ClInclude Include="..\ambiente\RGPManager.h" />
+    <ClInclude Include="..\ambiente\Time.h" />
+    <ClInclude Include="..\ambiente\Variable.h" />
+    <ClInclude Include="..\ambiente\RGPVariable.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Mestrado.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ambiente\algoritmo.cpp" />
-    <ClCompile Include="ambiente\BBTree.cpp" />
-    <ClCompile Include="ambiente\Configuration.cpp" />
-    <ClCompile Include="ambiente\RGPCut.cpp" />
-    <ClCompile Include="ambiente\grafo.cpp" />
-    <ClCompile Include="ambiente\LagrangeanRelaxation.cpp" />
-    <ClCompile Include="ambiente\RGPLagrangeanRelaxation.cpp" />
-    <ClCompile Include="ambiente\main.cpp" />
-    <ClCompile Include="ambiente\LagrangeanManager.cpp" />
-    <ClCompile Include="ambiente\Points.cpp" />
-    <ClCompile Include="ambiente\Constraint.cpp" />
-    <ClCompile Include="ambiente\RGPManager.cpp" />
-    <ClCompile Include="ambiente\Time.cpp" />
-    <ClCompile Include="ambiente\Variable.cpp" />
-    <ClCompile Include="ambiente\RGPVariable.cpp" />
+    <ClCompile Include="..\ambiente\algoritmo.cpp" />
+    <ClCompile Include="..\ambiente\BBTree.cpp" />
+    <ClCompile Include="..\ambiente\Configuration.cpp" />
+    <ClCompile Include="..\ambiente\RGPCut.cpp" />
+    <ClCompile Include="..\ambiente\grafo.cpp" />
+    <ClCompile Include="..\ambiente\LagrangeanRelaxation.cpp" />
+    <ClCompile Include="..\ambiente\RGPLagrangeanRelaxation.cpp" />
+    <ClCompile Include="..\ambiente\main.cpp" />
+    <ClCompile Include="..\ambiente\LagrangeanManager.cpp" />
+    <ClCompile Include="..\ambiente\Points.cpp" />
+    <ClCompile Include="..\ambiente\Constraint.cpp" />
+    <ClCompile Include="..\ambiente\RGPManager.cpp" />
+    <ClCompile Include="..\ambiente\Time.cpp" />
+    <ClCompile Include="..\ambiente\Variable.cpp" />
+    <ClCompile Include="..\ambiente\RGPVariable.cpp" />
     <ClCompile Include="Mestrado.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
